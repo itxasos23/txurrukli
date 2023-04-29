@@ -64,13 +64,7 @@ fn parse_departures(
             let child = &platform_node.children[0];
 
             let platform_id_node = match child.element() {
-                Some(element) => {
-                    println!("Checking blinking platform number");
-                    dbg!(&element);
-                    dbg!(&element.children);
-                    dbg!(&element.children[0]);
-                    element.children[0].text().unwrap()
-                }
+                Some(element) => element.children[0].text().unwrap(),
                 None => child.text().unwrap(),
             };
 
@@ -123,7 +117,7 @@ fn parse_departures(
     return entries;
 }
 
-pub fn parse_elcano_departures(
+pub fn parse_provider_response(
     provider_response: &str,
     departure_station: &str,
 ) -> Vec<TrainDeparture> {
