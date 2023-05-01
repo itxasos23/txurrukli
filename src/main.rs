@@ -9,7 +9,7 @@ use crate::clients::elcano_client::request_provider;
 use crate::parsers::elcano_parser::parse_provider_response;
 
 fn main() -> Result<()> {
-    let departure_station = "SABADELL NORD";
+    let departure_station = "SABADELL CENTRE";
 
     let provider_response = request_provider(&departure_station);
     let train_departures = parse_provider_response(&provider_response, &departure_station);
